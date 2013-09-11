@@ -1,0 +1,25 @@
+{% if expense_list %}
+<table>
+  <caption>Expenses</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for expense in expense_list %}
+    <tr>
+      <th>{{ expense.name }}</th>
+      <td>{{ expense.source }}</td>
+      <td>{{ expense.amount }}</td>
+      <td>{{ expense.date }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p>No expenses entered.</p>
+{% endif %}

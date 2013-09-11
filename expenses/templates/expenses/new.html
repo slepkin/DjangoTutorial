@@ -1,0 +1,21 @@
+<form action="{% url 'create' %}" method='post'>
+{% csrf_token %}
+  <label for="Name">Expense Name:</label>
+  <input name="name" id="Name" value="{{expense.name if expense else ''}}">
+  <br>
+
+  <label for="F">Flight:</label>
+  <input name="source" id="F" value="F" {{'checked' if expense.source=="F"}}>
+  <label for="C">Car Rental:</label>
+  <input name="source" id="C" value="C" {{'checked' if expense.source=="C"}}>
+  <label for="H">Hotel:</label>
+  <input name="source" id="H" value="H" {{'checked' if expense.source=="H"}}>
+  <br>
+
+  <label for="Amt">Amount:</label>
+  <input name="amount" id="Amt" value="{{expense.amount if expense else ''}}">
+  <br>
+
+  <input type="submit" value="Submit">
+
+</form>

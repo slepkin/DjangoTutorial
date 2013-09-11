@@ -10,5 +10,8 @@ class Expense(models.Model):
       ('H','Hotel')
     )
   )
-  amount = models.DecimalField(max_digits = 15,decimal_places = 2)
+  amount = models.DecimalField(max_digits = 15, decimal_places = 2)
   date = models.DateField()
+
+  def __unicode__(self):
+    return self.name
