@@ -1,19 +1,19 @@
 <form action="{% url 'create' %}" method='post'>
 {% csrf_token %}
   <label for="Name">Expense Name:</label>
-  <input name="name" id="Name" value="{{expense.name if expense else ''}}">
+  <input name="name" id="Name" >
   <br>
 
   <label for="F">Flight:</label>
-  <input name="source" id="F" value="F" {{'checked' if expense.source=="F"}}>
+  <input type="radio" name="source" id="F" value="F">
   <label for="C">Car Rental:</label>
-  <input name="source" id="C" value="C" {{'checked' if expense.source=="C"}}>
+  <input type="radio" name="source" id="C" value="C">
   <label for="H">Hotel:</label>
-  <input name="source" id="H" value="H" {{'checked' if expense.source=="H"}}>
+  <input type="radio" name="source" id="H" value="H">
   <br>
 
   <label for="Amt">Amount:</label>
-  <input name="amount" id="Amt" value="{{expense.amount if expense else ''}}">
+  <input name="amount" id="Amt">
   <br>
 
   <input type="submit" value="Submit">
