@@ -13,23 +13,21 @@
   <input type= "radio" name="source" id="H" value="H" {{ H_checked }}>
   <br>
 
-  <label for="Amt">Amount:</label>
+  <label for="Amt">Amount: $</label>
   <input name="amount" id="Amt" value={{ expense.amount }}>
+  <br>
+
+  <label for="Date">Date:</label>
+  <input type="date" name="date" id="Date" value={{ expense.date }}>
   <br>
 
   <input type="submit" value="Submit">
 
 </form>
 
-<strong>
-  {{ message.tags.capitalize }}: {{ message }}
-</strong>
-
-<!--{% if messages %}-->
-<!--  {% for message in messages %}-->
-<!--    <strong>-->
-<!--      {{ message.tags.capitalize }}: {{ message }}-->
-<!--    </strong>-->
-<!--    <br>-->
-<!--  {% endfor %}-->
-<!--{% endif %}-->
+{% if messages %}
+  {% for message in messages %}
+      {{ message }}
+    <br>
+  {% endfor %}
+{% endif %}

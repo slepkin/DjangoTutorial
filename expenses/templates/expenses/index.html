@@ -13,8 +13,8 @@
     {% for expense in expense_list %}
     <tr>
       <th>{{ expense.name }}</th>
-      <td>{{ expense.source }}</td>
-      <td>{{ expense.amount }}</td>
+      <td>{{ expense.get_source_display }}</td>
+      <td>${{ expense.amount }}</td>
       <td>{{ expense.date }}</td>
     </tr>
     {% endfor %}

@@ -1,7 +1,7 @@
 from django.db import models
 
 class Expense(models.Model):
-  name = models.CharField(max_length = 200)
+  name = models.CharField(max_length = 200, blank=False)
   source = models.CharField(
     max_length = 1,
     choices = (
