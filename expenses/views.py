@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from datetime import date
 from expenses.models import Expense
 from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 from django.contrib import messages #FLASH! AH ahhhhhhh...
 
 def index(request):
@@ -30,14 +31,14 @@ def create(request):
   )
   try:
     expense.save()
-  except ValidationError as e:
+  except IntegrityError as e:
     messages.add_message(request, messages.ERROR, e)
     context = {
     'expense': expense,
     'F_checked': 'checked' if expense.source=="F" else None,
     'C_checked': 'checked' if expense.source=="C" else None,
     'H_checked': 'checked' if expense.source=="H" else None,
-    'messages': e.messages
+    'message': e.message
     }
     return render(request, 'expenses/new.html', context)
   else:

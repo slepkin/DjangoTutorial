@@ -21,11 +21,15 @@
 
 </form>
 
-{% if messages %}
-  {% for message in messages %}
-    <strong>
-      {{ message.tags.capitalize }}: {{ message }}
-    </strong>
-    <br>
-  {% endfor %}
-{% endif %}
+<strong>
+  {{ message.tags.capitalize }}: {{ message }}
+</strong>
+
+<!--{% if messages %}-->
+<!--  {% for message in messages %}-->
+<!--    <strong>-->
+<!--      {{ message.tags.capitalize }}: {{ message }}-->
+<!--    </strong>-->
+<!--    <br>-->
+<!--  {% endfor %}-->
+<!--{% endif %}-->
