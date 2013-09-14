@@ -1,21 +1,31 @@
 <form action="{% url 'create' %}" method='post'>
 {% csrf_token %}
   <label for="Name">Expense Name:</label>
-  <input name="name" id="Name" >
+  <input name="name" id="Name"
+    value={{ expense.name }}>
   <br>
 
   <label for="F">Flight:</label>
-  <input type="radio" name="source" id="F" value="F">
+  <input type= "radio" name="source" id="F" value="F" {{ F_checked }}>
   <label for="C">Car Rental:</label>
-  <input type="radio" name="source" id="C" value="C">
+  <input type= "radio" name="source" id="C" value="C" {{ C_checked }}>
   <label for="H">Hotel:</label>
-  <input type="radio" name="source" id="H" value="H">
+  <input type= "radio" name="source" id="H" value="H" {{ H_checked }}>
   <br>
 
   <label for="Amt">Amount:</label>
-  <input name="amount" id="Amt">
+  <input name="amount" id="Amt" value={{ expense.amount }}>
   <br>
 
   <input type="submit" value="Submit">
 
 </form>
+
+{% if messages %}
+  {% for message in messages %}
+    <strong>
+      {{ message.tags.capitalize }}: {{ message }}
+    </strong>
+    <br>
+  {% endfor %}
+{% endif %}

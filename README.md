@@ -16,3 +16,6 @@ exactly once.
 
 I used `django.contrib.messages` to implement a Flash that
 informs the user how he failed validations.
+
+The 'create' view is a bit of a mess, since I tried to put
+all the business logic in it, to tidy up the template.
